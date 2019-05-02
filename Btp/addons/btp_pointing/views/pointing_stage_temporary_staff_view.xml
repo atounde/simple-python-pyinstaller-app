@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_pointing_stage_temporary_staff_tree" model="ir.ui.view">
+            <field name="name">btp_pointing.pointing.stage.temporary_staff.tree</field>
+            <field name="model">btp_pointing.pointing.stage.temporary_staff</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="task"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

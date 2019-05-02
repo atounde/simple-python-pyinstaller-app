@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_base_resource_material_form" model="ir.ui.view">
+            <field name="name">material.form</field>
+            <field name="model">btp_base.resource.material</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="type" invisible="1"/>
+                                <field name="category" domain="[('type', '=', type)]" context="{'default_type': 'material'}"/>
+                            </group>
+                            <group>
+                                <field name="unit"/>
+                                <field name="price" string="Coût unitaire"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_base_resource_material_tree">
+            <field name="name">material.tree</field>
+            <field name="model">btp_base.resource.material</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                     <field name="unit"/>
+                     <field name="price" string="Coût unitaire"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+         <record id="patient_search_view" model="ir.ui.view">
+            <field name="name">material.search</field>
+            <field name="model">btp_base.resource.material</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                     <field name="unit"/>
+                     <field name="price" string="Coût unitaire"/>
+                    <field name="category"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_btp_base_resource_material">
+            <field name="name">Matériaux</field>
+            <field name="res_model">btp_base.resource.material</field>
+            <field name="view_category">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                name="Matériaux"
+                id="menu_btp_base_resource_material"
+                action="action_btp_base_resource_material"
+                parent="menu_btp_config_material_resources"
+                sequence="3"
+        />
+
+    </data>
+</odoo>

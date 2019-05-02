@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_base_resource_machine_form" model="ir.ui.view">
+            <field name="name">Machine</field>
+            <field name="model">btp_base.resource.machine</field>
+            <field name="arch" type="xml">
+                <form string="Machine">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="code"/>
+                                <field name="owner_id"/>
+                                <field name="mark"/>
+                                <field name="year_of_purchase"/>
+                                <field name="type" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="category" domain="[('type', '=', type)]" context="{'default_type': 'machine'}"/>
+                                <field name="unit"/>
+                                <field name="price"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_base_resource_machine_tree">
+            <field name="name">machines.view</field>
+            <field name="model">btp_base.resource.machine</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="mark"/>
+                    <field name="year_of_purchase"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_btp_base_resource_machine_search" model="ir.ui.view">
+            <field name="name">resource_machine.search</field>
+            <field name="model">btp_base.resource.machine</field>
+            <field name="arch" type="xml">
+                <search string="Recherche">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="mark"/>
+                    <field name="year_of_purchase"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_btp_base_resource_machine">
+            <field name="name">Engins</field>
+            <field name="res_model">btp_base.resource.machine</field>
+            <field name="view_category">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_btp_base_resource_machine_search"/>
+        </record>
+        <menuitem
+                name="Engins"
+                id="menu_btp_base_resource_machine"
+                action="action_btp_base_resource_machine"
+                parent="menu_btp_config_material_resources"
+                sequence="1"
+        />
+    </data>
+</odoo>

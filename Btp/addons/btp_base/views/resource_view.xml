@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_resource_form" model="ir.ui.view">
+            <field name="name">btp_base.resource.form</field>
+            <field name="model">btp_base.resource</field>
+            <field name="arch" type="xml">
+                <form string="Ressource">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="4">
+                            <field name="unit"/>
+                            <field name="price"/>
+                            <field name="type"/>
+                            <field name="category" domain="[('type', '=', type)]"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_btp_base_resource_tree" model="ir.ui.view">
+            <field name="name">btp_base.resource.tree</field>
+            <field name="model">btp_base.resource</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des ressources">
+                    <field name="name"/>
+                    <field name="unit"/>
+                    <field name="price"/>
+                    <field name="type"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_btp_base_resource" model="ir.actions.act_window">
+            <field name="name">Ressources</field>
+            <field name="res_model">btp_base.resource</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="view_btp_base_resource_category_form" model="ir.ui.view">
+            <field name="name">Category</field>
+            <field name="model">btp_base.resource.category</field>
+            <field name="arch" type="xml">
+                <form string="Catégorie">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="type"/>
+                                <field name="unit"/>
+                                <field name="price"/>
+                            </group>
+                            <group>
+                                <field name="fuel"
+                                       attrs="{'invisible': [('type', '!=', 'machine'), ('type', '!=', 'vehicle')]}"/>
+                                <field name="hourly_cost" attrs="{'invisible': [('type', '!=', 'machine')]}"/>
+                                <field name="number_of_rotation" attrs="{'invisible': [('type', '!=', 'vehicle')]}"/>
+                                <field name="consumption_in_hundred" attrs="{'invisible': [('type', '!=', 'vehicle')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_base_resource_category_tree">
+            <field name="name">Categories</field>
+            <field name="model">btp_base.resource.category</field>
+            <field name="arch" type="xml">
+                <tree string="Catégories">
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_btp_base_resource_category">
+            <field name="name">Catégories</field>
+            <field name="res_model">btp_base.resource.category</field>
+            <field name="view_category">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                name="Catégories de ressources"
+                id="menu_btp_base_resource_category"
+                action="action_btp_base_resource_category"
+                parent="btp_base.menu_btp_config_general"
+                sequence="3"/>
+        <record id="view_btp_base_resource_unit_form" model="ir.ui.view">
+            <field name="name">Unit</field>
+            <field name="model">btp_base.resource.unit</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Unité">
+                    <label for="name"/>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_base_resource_unit_tree">
+            <field name="name">Units</field>
+            <field name="model">btp_base.resource.unit</field>
+            <field name="arch" type="xml">
+                <tree string="Unités" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_btp_base_resource_unit">
+            <field name="name">Unités</field>
+            <field name="res_model">btp_base.resource.unit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                name="Unités"
+                id="menu_btp_base_resource_unit"
+                action="action_btp_base_resource_unit"
+                parent="btp_base.menu_btp_config_general"
+                sequence="2"/>
+    </data>
+</odoo>

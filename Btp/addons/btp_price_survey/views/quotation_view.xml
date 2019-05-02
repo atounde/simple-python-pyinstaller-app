@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_quotation_form" model="ir.ui.view">
+            <field name="name">quotation_line_category.form</field>
+            <field name="model">btp_price_survey.quotation</field>
+            <field name="arch" type="xml">
+                <form string=" Devis">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                 <field name="tax"/>
+                            </group>
+                        </group>
+                        <group>
+                            <separator string="Catégories de lignes de devis"></separator>
+                            <field name="lines_categories" nolabel="1"/>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="amount_untaxed" class="oe_subtotal_footer oe_right"/>
+                            <field name="amount_taxed" class="oe_subtotal_footer oe_right"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_quotation_tree">
+            <field name="name">quotation_line_category.tree</field>
+            <field name="model">btp_price_survey.quotation</field>
+            <field name="arch" type="xml">
+                <tree string="Devis">
+                    <field name="name"/>
+                    <field name="amount_untaxed"/>
+                    <field name="amount_taxed"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_quotation">
+            <field name="name">Devis</field>
+            <field name="res_model">btp_price_survey.quotation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_quotation_tree"/>
+        </record>
+        <menuitem
+                name="Devis"
+                parent="construction_site.construction_site_main_menu"
+                id="menu_quotation"
+                sequence="2"/>
+        <menuitem
+                action="action_quotation"
+                name="Devis"
+                parent="menu_quotation"
+                id="menu_quotation_list"
+                sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_stage_line_tree">
+            <field name="name">stage_line.tree</field>
+            <field name="model">btp_price_survey.stage.line</field>
+            <field name="arch" type="xml">
+                <tree string="Lignes d'étape" editable="top">
+                    <field name="name"/>
+                    <field name="quantity"/>
+                    <field name="fuel_quantity"/>
+                    <field name="fuel_price"/>
+                    <field name="duration"/>
+                    <field name="performance"/>
+                    <field name="unit_price"/>
+                    <field name="price_total"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_stage_line">
+            <field name="name">Lignes d'étape</field>
+            <field name="res_model">btp_price_survey.stage.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_stage_line_tree"/>
+        </record>
+    </data>
+</odoo>

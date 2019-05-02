@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_analytical_account_tree">
+            <field name="name">analytical_account.tree</field>
+            <field name="model">btp_price_survey.analytical_account</field>
+            <field name="arch" type="xml">
+                <tree string="Compte analytique" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_analytical_account">
+            <field name="name">Compte analytique</field>
+            <field name="res_model">btp_price_survey.analytical_account</field>
+            <field name="type">form</field>
+            <field name="mode">tree,form</field>
+            <field name="view_id" ref="view_analytical_account_tree"/>
+        </record>
+        <menuitem
+                action="action_analytical_account"
+                name="Compte analytique"
+                parent="menu_btp_config_quotation"
+                id="menu_analytical_account"
+                sequence="2"/>
+    </data>
+</odoo>

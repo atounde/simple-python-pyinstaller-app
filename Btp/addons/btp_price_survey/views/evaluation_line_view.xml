@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_price_survey_evaluation_line_tree" model="ir.ui.view">
+            <field name="name">btp_price_survey_evaluation_line.tree</field>
+            <field name="model">btp_price_survey.abstract_evaluation.line</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="analytical_account"/>
+                    <field name="stage_id"/>
+                    <field name="unit"/>
+                    <field name="unit_price"/>
+                    <field name="monday_quantity"/>
+                    <field name="tuesday_quantity"/>
+                    <field name="wednesday_quantity"/>
+                    <field name="thursday_quantity"/>
+                    <field name="friday_quantity"/>
+                    <field name="saturday_quantity"/>
+                    <field name="sunday_quantity"/>
+                    <field name="weekly_quantity"/>
+                    <field name="weekly_amount" sum="Montant hebdomadaire"/>
+                    <field name="global_quantity"/>
+                    <field name="global_amount" sum="Montant global"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_stage_category_tree">
+            <field name="name">stage_category.tree</field>
+            <field name="model">btp_price_survey.stage.category</field>
+            <field name="arch" type="xml">
+                <tree string="Catégorie d'étape" editable="top">
+                    <field name="name"/>
+                    <field name="analytical_account"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_stage_category_search" model="ir.ui.view">
+            <field name="name">stage_category.search</field>
+            <field name="model">btp_price_survey.stage.category</field>
+            <field name="arch" type="xml">
+                <search string="Recherche">
+                    <field name="name"/>
+                    <field name="analytical_account"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_stage_category">
+            <field name="name">Catégorie d'étape</field>
+            <field name="res_model">btp_price_survey.stage.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_stage_category_tree"/>
+            <field name="search_view_id" ref="view_stage_category_search"/>
+        </record>
+         <menuitem
+                name="Devis"
+                id="menu_btp_config_quotation"
+                parent="btp_base.menu_btp_config"
+                sequence="4"/>
+        <menuitem
+                action="action_stage_category"
+                name="Catégorie d'étape"
+                parent="menu_btp_config_quotation"
+                id="menu_stage_category"
+                sequence="1"/>
+    </data>
+</odoo>

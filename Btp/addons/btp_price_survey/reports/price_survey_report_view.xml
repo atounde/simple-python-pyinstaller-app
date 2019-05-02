@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <report
+      id="price_survey_xlsx"
+      model="btp_price_survey.price_survey"
+      string="ETUDE DE PRIX"
+      report_type="xlsx"
+      name="report_xlsx.price_survey_xlsx"
+      file="btp_price_survey_price_survey"
+      attachment_use="False"
+  />
+</odoo>

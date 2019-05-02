@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="construction_site.list">
+            <field name="name">construction_site.tree</field>
+            <field name="model">construction_site.construction_site</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="city"/>
+                    <field name="estimated_budget"/>
+                    <field name="executed_budget"/>
+                    <field name="execution_rate"/>
+                </tree>
+            </field>
+        </record>
+        <record id="construction_site_form_view" model="ir.ui.view">
+            <field name="name">construction_site.form</field>
+            <field name="model">construction_site.construction_site</field>
+            <field name="arch" type="xml">
+                <form string="construction_site_form">
+                    <sheet>
+                        <group name="construction_site_group">
+                            <group>
+                                <field name="name"/>
+                                <field name="city"/>
+                            </group>
+                            <group>
+                                <field name="estimated_budget"/>
+                                <field name="executed_budget"/>
+                                <field name="execution_rate"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="construction_site.action_window">
+            <field name="name">Chantier</field>
+            <field name="res_model">construction_site.construction_site</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                name="Chantiers"
+                id="construction_site_main_menu"
+                action="construction_site.action_window"
+                parent="btp_base.main_menu_btp"
+                sequence="1"
+        />
+        <menuitem
+                name="Chantiers"
+                id="construction_site_list_menu"
+                action="construction_site.action_window"
+                parent="construction_site_main_menu"
+                sequence="1"
+        />
+    </data>
+</odoo>

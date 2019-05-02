@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_btp_price_survey_machine_tree">
+            <field name="name">btp_price_survey.template.machine.tree</field>
+            <field name="model">btp_price_survey.template.machine</field>
+            <field name="arch" type="xml">
+                <tree string="Engins" editable="top">
+                    <field name="name" context="{'default_type': 'machine'}"/>
+                </tree>
+            </field>
+        </record>       
+        <record model="ir.ui.view" id="view_btp_price_survey_vehicle_tree">
+            <field name="name">btp_price_survey.line_template.vehicle.tree</field>
+            <field name="model">btp_price_survey.template.vehicle</field>
+            <field name="arch" type="xml">
+                <tree string="Véhicules" editable="top">
+                  <field name="name" context="{'default_type': 'vehicle'}"/>
+                  <field name="distance"/>
+                  <field name="number_of_rotation"/>
+                </tree>
+            </field>
+        </record>        
+        <record model="ir.ui.view" id="view_btp_price_survey_material_tree">
+            <field name="name">btp_price_survey.line_template.material.tree</field>
+            <field name="model">btp_price_survey.template.material</field>
+            <field name="arch" type="xml">
+                <tree string="Matériaux" editable="top">
+                    <field name="name" context="{'default_type': 'material'}"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_price_survey_small_material_tree">
+            <field name="name">btp_price_survey.template.small_material.tree</field>
+            <field name="model">btp_price_survey.template.small_material</field>
+            <field name="arch" type="xml">
+                <tree string="Petits matériels" editable="top">
+                    <field name="name" context="{'default_type': 'small_material'}"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_price_survey_temporary_staff_tree">
+            <field name="name">btp_price_survey.line_template.temporary_staff.tree</field>
+            <field name="model">btp_price_survey.template.temporary_staff</field>
+            <field name="arch" type="xml">
+                <tree string="Personnel temporaire" editable="top">
+                    <field name="name" context="{'default_type': 'temporary_staff'}"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_price_survey_misc_tree">
+            <field name="name">btp_price_survey.template.misc.tree</field>
+            <field name="model">btp_price_survey.template.misc</field>
+            <field name="arch" type="xml">
+                <tree string="Divers" editable="top">
+                    <field name="name" context="{'default_type': 'misc'}"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="pointing_construction_site_form">
+            <field name="name">construction_site_construction_site_form_inherit</field>
+            <field name="model">construction_site.construction_site</field>
+            <field name="inherit_id" ref="construction_site.construction_site_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/*" position="before">
+                    <header>
+                        <button name="generate_daily_pointing" type="object"
+                                string="Générer le pointage"
+                                class="oe_highlight"
+                        />
+                    </header>
+                </xpath>
+                <xpath expr='//group[@name="construction_site_group"]' position='after'>
+                    <notebook>
+                        <page string="Personnel temporaire">
+                            <field name="temporary_staff_ids"/>
+                        </page>
+                    </notebook>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

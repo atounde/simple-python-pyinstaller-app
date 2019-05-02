@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_permanent_staff_form ">
+            <field name="name">permanent_staff.form</field>
+            <field name="model">btp_base.permanent_staff</field>
+            <field name="arch" type="xml">
+                <form string="Personnel permanent">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="monthly_pay"/>
+                            </group>
+                            <group>
+                                <field name="profession_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_permanent_staff_tree">
+            <field name="name">permanent_staff.tree</field>
+            <field name="model">btp_base.permanent_staff</field>
+            <field name="arch" type="xml">
+                <tree string="Personnel permanent">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="profession_id"/>
+                    <field name="monthly_pay"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_permanent_staff_search" model="ir.ui.view">
+            <field name="name">permanent_staff.search</field>
+            <field name="model">btp_base.permanent_staff</field>
+            <field name="arch" type="xml">
+                <search string="Recherche">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="profession_id"/>
+                    <field name="monthly_pay"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_permanent_staff">
+            <field name="name">Personnel permanent</field>
+            <field name="res_model">btp_base.permanent_staff</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_permanent_staff_tree"/>
+            <field name="search_view_id" ref="view_permanent_staff_search"/>
+        </record>
+        <menuitem
+                action="action_permanent_staff"
+                name="Personnel permanent"
+                parent="menu_btp_config_human_resources"
+                id="menu_permanent_staff"
+                sequence="2"/>
+    </data>
+</odoo>

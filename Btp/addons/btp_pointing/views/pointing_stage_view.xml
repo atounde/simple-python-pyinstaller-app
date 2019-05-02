@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_pointing_stage_form" model="ir.ui.view">
+            <field name="name">btp_pointing.pointing_stage.form</field>
+            <field name="model">btp_pointing.pointing.stage</field>
+            <field name="arch" type="xml">
+                <form string="Étape de pointages">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="analytical_account"/>
+                                <field name="pointing_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Personnel temporaire">
+                                <field name="line_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_btp_pointing_stage_tree" model="ir.ui.view">
+            <field name="name">btp_pointing.pointing_stage.tree</field>
+            <field name="model">btp_pointing.pointing.stage</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="analytical_account"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

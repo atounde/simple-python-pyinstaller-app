@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stage_template_form" model="ir.ui.view">
+            <field name="name">btp_price_survey.template.stage.form</field>
+            <field name="model">btp_price_survey.template.stage</field>
+            <field name="arch" type="xml">
+                <form string="Étapes du template">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group string="Engins">
+                            <div>
+                                <field name="machine_ids" string=" "/>
+                            </div>
+                        </group>
+                        <group string="Véhicules">
+                            <div>
+                                <field name="vehicle_ids" string=" "/>
+                            </div>
+                        </group>
+                        <group string="Matériaux">
+                            <div>
+                                <field name="material_ids" string=" "/>
+                            </div>
+                        </group>
+                        <group string="Petits materiéls">
+                            <div>
+                                <field name="small_material_ids" string=" "/>
+                            </div>
+                        </group>
+                        <group string="Personnel temporaire">
+                            <div>
+                                <field name="temporary_staff_ids" string=" "/>
+                            </div>
+                        </group>
+                        <group string="Divers">
+                            <div>
+                                <field name="misc_ids" string=" "/>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

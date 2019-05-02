@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_profession_form ">
+            <field name="name">profession.form</field>
+            <field name="model">btp_base.profession</field>
+            <field name="arch" type="xml">
+                <form string="Profession">
+                    <label for="name" class="oe_edit_only"/>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_profession_tree">
+            <field name="name">profession.tree</field>
+            <field name="model">btp_base.profession</field>
+            <field name="arch" type="xml">
+                <tree string="Profession" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_profession">
+            <field name="name">Profession</field>
+            <field name="res_model">btp_base.profession</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_profession_tree"/>
+        </record>
+        <menuitem
+                action="action_profession"
+                name="Professions"
+                parent="menu_btp_config_human_resources"
+                id="menu_profession"
+                sequence="1"/>
+    </data>
+</odoo>

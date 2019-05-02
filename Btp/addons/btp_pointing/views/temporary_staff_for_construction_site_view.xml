@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="temporary_staff_for_construction_site_tree">
+            <field name="name">btp_pointing.temporary_staff_for_construction_site.tree</field>
+            <field name="model">btp_pointing.temporary_staff_for_construction_site</field>
+            <field name="arch" type="xml">
+                <tree string="Personnel temporaire" editable="top">
+                    <field name="name"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

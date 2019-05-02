@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_quotation_line_category_form" model="ir.ui.view">
+            <field name="name">quotation_line_category.form</field>
+            <field name="model">btp_price_survey.quotation.line.category</field>
+            <field name="arch" type="xml">
+                <form string=" Catégorie de lignes de devis">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="analytical_account"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible': [('name', '=', False)]}">
+                            <separator string="Lignes de devis"></separator>
+                            <field name="quotation_lines" nolabel="1">
+                                <tree string="Lignes de devis" editable="top">
+                                    <field name="analytical_account"/>
+                                    <field name="name" domain="[('category', '=',parent.name)]"/>
+                                    <field name="unit"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price"/>
+                                    <field name="number_of_days"/>
+                                    <field name="total_price"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="total_price" class="oe_subtotal_footer oe_right"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_quotation_line_category_tree">
+            <field name="name">quotation_line_category.tree</field>
+            <field name="model">btp_price_survey.quotation.line.category</field>
+            <field name="arch" type="xml">
+                <tree string="Catégorie de lignes de devis">
+                    <field name="analytical_account"/>
+                    <field name="name"/>
+                    <field name="total_price"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_quotation_line_category">
+            <field name="name">Catégories de lignes de devis</field>
+            <field name="res_model">btp_price_survey.quotation.line.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_quotation_line_category_tree"/>
+        </record>
+    </data>
+</odoo>

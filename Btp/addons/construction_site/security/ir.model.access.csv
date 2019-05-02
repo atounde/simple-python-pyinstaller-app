@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_construction_site_construction_site,access_construction_site_construction_site,model_construction_site_construction_site,,1,1,1,1
+access_construction_settings,access_construction_settings,model_construction_settings,,1,1,1,1
+access_city_city,access_city_city,model_city_city,,1,1,1,1

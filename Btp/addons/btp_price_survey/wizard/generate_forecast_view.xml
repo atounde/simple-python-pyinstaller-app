@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="generate_forecast_id" model="ir.ui.view">
+            <field name="name">btp_price_survey.generate_forecast.form</field>
+            <field name="model">btp_price_survey.generate_forecast</field>
+            <field name="arch" type="xml">
+                <form string="Générer une prévision hebdomadaire">
+                    <script>
+                        $(".modal-footer").css("display", "none");
+                        $(".cancel_button").css("margin-left", "8px");
+                    </script>
+                    <group>
+                        <group>
+                            <field name="planned_start_date"/>
+                        </group>
+                        <group>
+                            <field name="planned_end_date"/>
+                        </group>
+                        <group>
+                            <field name="construction_site_id"/>
+                        </group>
+                    </group>
+                    <button type="object" name="generate_forecast" class="btn btn-primary btn-sm o_form_button_save"
+                            string="Créer"/>
+                    <button special="cancel" class="btn btn-default btn-sm o_form_button_cancel cancel_button"
+                            string="Annuler"/>
+                </form>
+            </field>
+        </record>
+        <record id="action_generate_forecast" model="ir.actions.act_window">
+            <field name="name">Générer des prévisions hebdomadaires</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">btp_price_survey.generate_forecast</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem
+                action="action_generate_forecast"
+                name="Générer une prévision"
+                id="menu_generate_forecast"
+                parent="btp_price_survey.menu_forecast"
+                sequence="1"/>
+    </data>
+</odoo>

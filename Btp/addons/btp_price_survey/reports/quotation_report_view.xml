@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <report
+      id="quotation_xlsx"
+      model="btp_price_survey.quotation"
+      string="DEVIS"
+      report_type="xlsx"
+      name="report_xlsx.quotation_xlsx"
+      file="btp_price_survey_quotation"
+      attachment_use="False"
+  />
+</odoo>

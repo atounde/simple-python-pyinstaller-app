@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="city_list">
+            <field name="name">city.tree</field>
+            <field name="model">city.city</field>
+            <field name="arch" type="xml">
+                <tree string="Ville" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="city_form_view" model="ir.ui.view">
+            <field name="name">city.form</field>
+            <field name="model">city.city</field>
+            <field name="arch" type="xml">
+                <form string="Ville">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="city_action_window">
+            <field name="name">Ville</field>
+            <field name="res_model">city.city</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                name="Ville"
+                id="city_list_menu"
+                action="city_action_window"
+                parent="btp_base.menu_btp_config_general"
+                sequence="1"
+        />
+    </data>
+</odoo>

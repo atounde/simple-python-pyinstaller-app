@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_consumption_execution_form" model="ir.ui.view">
+            <field name="name">btp_price_survey.consumption_execution.form</field>
+            <field name="model">btp_price_survey.consumption_execution</field>
+            <field name="arch" type="xml">
+                <form string="Consommation réelle hebdomadaire"  create="false">
+                    <header>
+                        <button name="action_evaluation_running" type="object" states="draft"
+                                string="Lancer la consommation"
+                                class="oe_highlight"/>
+                        <button name="action_evaluation_close" type="object" states="is_running"
+                                string="Fermer la consommation" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="construction_site_id"/>
+                            </group>
+                            <group>
+                                <field name="planned_start_date"/>
+                                <field name="planned_end_date"/>
+                            </group>
+                        </group>
+                        <separator string="Étapes"></separator>
+                        <field name="stage_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_consumption_execution_tree">
+            <field name="name">consumption_execution.tree</field>
+            <field name="model">btp_price_survey.consumption_execution</field>
+            <field name="arch" type="xml">
+                <tree string="Consommation réelle hebdomadaire"  create="false">
+                    <field name="name"/>
+                    <field name="construction_site_id"/>
+                    <field name="planned_start_date"/>
+                    <field name="planned_end_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_consumption_execution">
+            <field name="name">Réalisation de consommation hebdomadaire</field>
+            <field name="res_model">btp_price_survey.consumption_execution</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_consumption_execution_tree"/>
+        </record>
+        <menuitem
+                action="action_consumption_execution"
+                name="Réalisations"
+                id="menu_consumption_execution"
+                parent="menu_consumption"
+                sequence="2"/>
+    </data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_temporary_staff_form ">
+            <field name="name">temporary_staff.form</field>
+            <field name="model">btp_base.temporary_staff</field>
+            <field name="arch" type="xml">
+                <form string="Personnel temporaire">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="code"/>
+                                <field name="category" domain="[('type', '=', type)]" context="{'default_type': 'temporary_staff'}"/>
+                                <field name="type" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="unit" string="Fréquence de paiement" required="1"/>
+                                <field name="price" string="Salaire" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_temporary_staff_tree">
+            <field name="name">temporary_staff.tree</field>
+            <field name="model">btp_base.temporary_staff</field>
+            <field name="arch" type="xml">
+                <tree string="Personnel temporaire">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="unit" string="Fréquence de paiement"/>
+                    <field name="price" string="Salaire"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_temporary_staff_search" model="ir.ui.view">
+            <field name="name">temporary_staff.search</field>
+            <field name="model">btp_base.temporary_staff</field>
+            <field name="arch" type="xml">
+                <search string="Recherche">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="unit" string="Fréquence de paiement"/>
+                    <field name="price" string="Salaire"/>
+                    <field name="category"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_temporary_staff">
+            <field name="name">Personnel temporaire</field>
+            <field name="res_model">btp_base.temporary_staff</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_temporary_staff_tree"/>
+            <field name="search_view_id" ref="view_temporary_staff_search"/>
+        </record>
+        <menuitem
+                action="action_temporary_staff"
+                name="Personnel temporaire"
+                parent="menu_btp_config_human_resources"
+                id="menu_temporary_staff"
+                sequence="3"/>
+    </data>
+</odoo>

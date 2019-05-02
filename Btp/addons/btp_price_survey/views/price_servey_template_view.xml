@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_btp_price_survey_template_tree">
+            <field name="name">btp_price_survey.template.tree</field>
+            <field name="model">btp_price_survey.template</field>
+            <field name="arch" type="xml">
+                <tree string="Étude de prix" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

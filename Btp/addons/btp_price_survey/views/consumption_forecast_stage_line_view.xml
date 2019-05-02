@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_consumption_forecast_stage_line_tree" model="ir.ui.view">
+            <field name="name">btp_price_survey_consumption_forecast_stage_line.tree</field>
+            <field name="model">btp_price_survey.consumption_forecast.stage.line</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="resource_category_id"/>
+                    <field name="unit"/>
+                    <field name="unit_price"/>
+                    <field name="monday_quantity"/>
+                    <field name="tuesday_quantity"/>
+                    <field name="wednesday_quantity"/>
+                    <field name="thursday_quantity"/>
+                    <field name="friday_quantity"/>
+                    <field name="saturday_quantity"/>
+                    <field name="sunday_quantity"/>
+                    <field name="weekly_quantity"/>
+                    <field name="weekly_amount" sum="Montant hebdomadaire"/>
+                    <field name="global_quantity"/>
+                    <field name="global_amount" sum="Montant global"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

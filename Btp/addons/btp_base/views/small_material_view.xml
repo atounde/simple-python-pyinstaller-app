@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_base_resource_small_material_form" model="ir.ui.view">
+            <field name="name">small_material.form</field>
+            <field name="model">btp_base.resource.small_material</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="mark"/>
+                                <field name="year_of_purchase"/>
+                                <field name="category" domain="[('type', '=', type)]" context="{'default_type': 'small_material'}"/>
+                                <field name="type" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="unit"/>
+                                <field name="price" string="Coût unitaire"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_btp_base_resource_small_material_tree">
+            <field name="name">small_material.tree</field>
+            <field name="model">btp_base.resource.small_material</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="unit"/>
+                    <field name="price" string="Coût unitaire"/>
+                    <field name="category"/>
+                    <field name="mark"/>
+                    <field name="year_of_purchase"/>
+                </tree>
+            </field>
+        </record>
+        <record id="small_material_search_view" model="ir.ui.view">
+            <field name="name">small_material.search</field>
+            <field name="model">btp_base.resource.small_material</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="unit"/>
+                    <field name="price" string="Coût unitaire"/>
+                    <field name="category"/>
+                    <field name="mark"/>
+                    <field name="year_of_purchase"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_btp_base_resource_small_material">
+            <field name="name">Petit matériel</field>
+            <field name="res_model">btp_base.resource.small_material</field>
+            <field name="view_category">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem
+                name="Petits matériels"
+                id="menu_btp_base_resource_small_material"
+                action="action_btp_base_resource_small_material"
+                parent="menu_btp_config_material_resources"
+                sequence="4"
+        />
+    </data>
+</odoo>

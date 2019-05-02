@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_btp_pointing_form" model="ir.ui.view">
+            <field name="name">btp_pointing_pointing.form</field>
+            <field name="model">btp_pointing.pointing</field>
+            <field name="arch" type="xml">
+                <form string="Pointage"  create="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="construction_site_id"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                        <separator string="Étapes de pointages"></separator>
+                        <field name="stage_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_btp_pointing_tree" model="ir.ui.view">
+            <field name="name">btp_pointing_pointing.tree</field>
+            <field name="model">btp_pointing.pointing</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Pointages"  create="false">
+                    <field name="name"/>
+                    <field name="construction_site_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_btp_pointing_search" model="ir.ui.view">
+            <field name="name">btp_pointing_pointing.search</field>
+            <field name="model">btp_pointing.pointing</field>
+            <field name="arch" type="xml">
+                <search string="Recherche">
+                    <field name="name"/>
+                    <field name="construction_site_id"/>
+                    <field name="date"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_btp_pointing_tree">
+            <field name="name">Pointages</field>
+            <field name="res_model">btp_pointing.pointing</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_btp_pointing_tree"/>
+            <field name="search_view_id" ref="view_btp_pointing_search"/>
+        </record>
+        <menuitem
+                name="Pointages"
+                id="menu_btp_pointing"
+                parent="btp_base.main_menu_btp"
+                action="action_btp_pointing_tree"
+                sequence="4"/>
+    </data>
+</odoo>

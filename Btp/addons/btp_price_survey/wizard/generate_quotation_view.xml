@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="quotation_wizard_view" model="ir.ui.view">
+            <field name="name">quotation.wizard.form</field>
+            <field name="model">quotation.wizard</field>
+            <field name="arch" type="xml">
+                <form string=" Devis">
+                    <script>
+                        $(".modal-footer").css("display", "none");
+                        $(".cancel_button").css("margin-left", "8px");
+                    </script>
+                    <group>
+                        <group>
+                            <field name="tax"/>
+                        </group>
+                    </group>
+                    <button type="object" name="generate_quotation"
+                            class="btn btn-primary btn-sm o_form_button_save" string="Créer le devis"/>
+                    <button special="cancel" class="btn btn-default btn-sm o_form_button_cancel cancel_button"
+                            string="Annuler"/>
+                </form>
+            </field>
+        </record>
+        <record id="quotation_wizard_action" model="ir.actions.act_window">
+            <field name="name">Calcul de devis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">quotation.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

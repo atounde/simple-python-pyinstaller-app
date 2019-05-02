@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="btp_base_res_company_extended_view" model="ir.ui.view">
+    <field name="name">btp_base.res_company_extended_view</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//notebook" position="inside">
+        <page string="Paramètres de chantiers">
+          <group>
+              <field name="settings_ids" nolabel="1"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+  <record model="ir.ui.view" id="btp_base_company_settings_tree">
+      <field name="name">btp_base.company_settings_tree</field>
+      <field name="model">btp_base.company.settings</field>
+      <field name="arch" type="xml">
+          <tree editable="bottom">
+              <field name="name"/>
+              <field name="code"/>
+              <field name="company_id" invisible="1"/>
+          </tree>
+      </field>
+  </record>
+  <record model="ir.actions.act_window" id="btp_base_custom_settings_action">
+      <field name="name">Paramètres de chantiers</field>
+      <field name="res_model">btp_base.company.settings</field>
+      <field name="view_category">tree</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

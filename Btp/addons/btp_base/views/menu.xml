@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+                name="ProBtp"
+                id="main_menu_btp"
+                web_icon="btp_base,static/description/icon.png"
+                sequence="0"/>
+        <menuitem
+                name="Configuration"
+                id="menu_btp_config"
+                parent="main_menu_btp"
+                sequence="5"/>
+        <menuitem
+                name="Général"
+                id="menu_btp_config_general"
+                parent="menu_btp_config"
+                sequence="1"/>
+        <menuitem
+                name="Ressources humaines"
+                id="menu_btp_config_human_resources"
+                parent="menu_btp_config"
+                sequence="2"/>
+        <menuitem
+                name="Ressources matérielles"
+                id="menu_btp_config_material_resources"
+                parent="menu_btp_config"
+                sequence="3"/>
+    </data>
+</odoo>
